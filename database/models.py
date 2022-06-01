@@ -40,7 +40,7 @@ class Store(models.Model):
 
 class Order(models.Model):
     OrdersID = models.AutoField(primary_key=True)
-    SalesDate = models.DateTimeField()
+    SalesDate = models.DateField()
     SalesPerson = models.ForeignKey(Employee, on_delete=models.CASCADE)
     Customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
 
