@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+'django.contrib.staticfiles',
     #add-in
     'database',
     'api',
@@ -77,14 +78,21 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#             'ENGINE': 'django.db.backends.postgresql',
+#             'NAME': 'railway',                      
+#             'USER': 'postgres',
+#             'PASSWORD': 'BeK4HnUbE5ooPJkEBjvX',
+#             'HOST': 'containers-us-west-59.railway.app',
+#             'PORT': '6709',
+#     }
+# }
+
 DATABASES = {
     'default': {
-            'ENGINE': 'django.db.backends.postgresql',
-            'NAME': 'railway',                      
-            'USER': 'postgres',
-            'PASSWORD': 'BeK4HnUbE5ooPJkEBjvX',
-            'HOST': 'containers-us-west-59.railway.app',
-            'PORT': '6709',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join('', 'test.db'),
     }
 }
 
@@ -118,6 +126,10 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 
 USE_TZ = True
+
+# Static files (CSS, JavaScript, Images)
+# https://docs.djangoproject.com/en/1.9/howto/static-files/
+STATIC_URL = '/static/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field

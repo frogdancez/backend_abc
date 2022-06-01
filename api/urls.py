@@ -18,6 +18,6 @@ urlpatterns = [
     path('topEmployeeBySale', topEmployeeBySale, name='topEmployeeBySale'),
     path('topEmployeeByRecord', topEmployeeByRecord, name='topEmployeeByRecord'),
     # store
-    path('topEmployeeByRecord', topEmployeeByRecord, name='topEmployeeByRecord'),
-    path('topEmployeeBySale', topEmployeeBySale, name='topEmployeeBySale'),
+    path('topStoreByRecord', topStoreByRecord, name='topStoreByRecord'),
+    path('topStoreBySale', topStoreBySale, name='topStoreBySale'),
 ]

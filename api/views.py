@@ -73,13 +73,13 @@ def topEmployeeByRecord(request):
 def topStoreBySale(request):
     data = {
         'status': 1,
-        'data': list(OrderDetail.objects.values('Store__Store').annotate(Sales=Sum('Sales')).order_by('-Sales'))
+        'data': list(OrderDetail.objects.values('Store__Store', 'Store__Latitude', 'Store__Longitude').annotate(Sales=Sum('Sales')).order_by('-Sales'))
     }
     return JsonResponse(data)
 
 def topStoreByRecord(request):
     data = {
         'status': 1,
-        'data': list(OrderDetail.objects.values('Store__Store').annotate(Record=Count('Sales')).order_by('-Record'))
+        'data': list(OrderDetail.objects.values('Store__Store', 'Store__Latitude', 'Store__Longitude').annotate(Record=Count('Sales')).order_by('-Record'))
     }
     return JsonResponse(data)
