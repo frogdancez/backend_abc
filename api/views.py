@@ -10,13 +10,6 @@ def index(request):
     }
     return JsonResponse(data)
 
-# static file
-def singPath(request):
-    return HttpResponse(open('.\api\static\singapore.geojson', "r"))
-
-def worldPath(request):
-    return HttpResponse(open('.\api\static\world.geojson', "r"))
-
 # Overview
 def getSales(request):
     data = {

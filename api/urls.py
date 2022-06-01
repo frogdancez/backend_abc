@@ -4,9 +4,6 @@ from api.views import *
 urlpatterns = [
     path('', index, name='index'),
     # intelligence
-    # static
-    path('singPath', singPath, name='singPath'),
-    path('worldPath', worldPath, name='worldPath'),
     # overview
     path('getSales', getSales, name='getSales'),
     # customer

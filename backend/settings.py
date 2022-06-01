@@ -26,8 +26,8 @@ SECRET_KEY = 'django-insecure-lhi6j-kdekvo9mci%_f)0_84altu-m%ut+ps-ulx2meyarglq5
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['backendabc.up.railway.app']
-# ALLOWED_HOSTS = []
+# ALLOWED_HOSTS = ['backendabc.up.railway.app']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -80,22 +80,22 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#             'ENGINE': 'django.db.backends.postgresql',
-#             'NAME': 'PostgreSQL',                      
-#             'USER': 'postgres',
-#             'PASSWORD': 'umXpfpOlXC3SDqX0EfRa',
-#             'HOST': 'containers-us-west-59.railway.app',
-#             'PORT': '7573',
-#     }
-# }
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'test.sqlite3',
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': 'railway',                      
+            'USER': 'postgres',
+            'PASSWORD': 'RsIDJfQe9HyXLkbq6p3X',
+            'HOST': 'containers-us-west-61.railway.app',
+            'PORT': '7709',
     }
 }
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'test.sqlite3',
+#     }
+# }
 
 
 # Password validation
