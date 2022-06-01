@@ -3,23 +3,23 @@ from .models import *
 
 # Register your models here.
 
-class CustomersAdmin(admin.ModelAdmin):
+class CustomerAdmin(admin.ModelAdmin):
     list_display = ['CustomerID', 'CustomerName', 'Country', 'Gender', 'Phone', 'PostalCode']
-class StoresAdmin(admin.ModelAdmin):
+class StoreAdmin(admin.ModelAdmin):
     list_display = ['StoreID', 'Store', 'Region', 'Latitude', 'Longitude']
-class EmployeesAdmin(admin.ModelAdmin):
+class EmployeeAdmin(admin.ModelAdmin):
     list_display = ['SalesPersonID', 'SalesPersonName', 'Title']
-class ProductsAdmin(admin.ModelAdmin):
+class ProductAdmin(admin.ModelAdmin):
     list_display = ['ProductID', 'Category', 'Product']
-class OrdersAdmin(admin.ModelAdmin):
+class OrderAdmin(admin.ModelAdmin):
     list_display = ['OrdersID', 'SalesDate', 'SalesPerson', 'Customer']
-class OrderDetailsAdmin(admin.ModelAdmin):
+class OrderDetailAdmin(admin.ModelAdmin):
     list_display = ['OrderDetailID', 'Order', 'Store', 'Product', 'Quantity', 'Sales']
 
 
-admin.site.register(Stores, StoresAdmin)
-admin.site.register(Customers, CustomersAdmin)
-admin.site.register(Products, ProductsAdmin)
-admin.site.register(Employees, EmployeesAdmin)
-admin.site.register(Orders, OrdersAdmin)
-admin.site.register(OrderDetails, OrderDetailsAdmin)
+admin.site.register(Store, StoreAdmin)
+admin.site.register(Customer, CustomerAdmin)
+admin.site.register(Product, ProductAdmin)
+admin.site.register(Employee, EmployeeAdmin)
+admin.site.register(Order, OrderAdmin)
+admin.site.register(OrderDetail, OrderDetailAdmin)
