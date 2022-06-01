@@ -40,8 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     #add-in
-    'database.apps.GuestConfig',
-    'api.apps.GuestConfig',
+    'database.apps.DatabaseConfig',
+    'api.apps.ApiConfig',
 ]
 
 MIDDLEWARE = [
