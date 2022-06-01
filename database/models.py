@@ -6,7 +6,7 @@ class Customer(models.Model):
     Country = models.CharField(max_length=15)
     CustomerName = models.CharField(max_length=40)
     Gender = models.CharField(max_length=10)
-    Phone = models.CharField(max_length=15)
+    Phone = models.CharField(max_length=20)
     PostalCode = models.CharField(max_length=15)
 
     def __str__(self):
