@@ -1,12 +1,20 @@
-from django.http import HttpResponse, JsonResponse
+from django.http import JsonResponse
 from django.db.models import Sum, Count
 from database.models import *
+from django.db.models.functions import ExtractYear
 
 # Create your views here.
 def index(request):
     data = {
         'status': 1,
         'data': 'Hello, World!'
+    }
+    return JsonResponse(data)
+
+def getAllYear(request):
+    data = {
+        'status': 1,
+        'data': list(Order.objects.filter().annotate(Year=ExtractYear('SalesDate')).values('Year').distinct())
     }
     return JsonResponse(data)
 
