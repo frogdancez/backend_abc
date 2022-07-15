@@ -6,6 +6,7 @@ urlpatterns = [
     # intelligence
     # front-end
     path('getAllYear', getAllYear, name='getAllYear'),
+    path('getTimeRange', getTimeRange, name='getTimeRange'),
     # overview
     path('getSales', getSales, name='getSales'),
     # customer

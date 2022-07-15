@@ -18,6 +18,13 @@ def getAllYear(request):
     }
     return JsonResponse(data)
 
+def getTimeRange(request):
+    data = {
+        'status': 1,
+        'data': list(Order.objects.earliest('SalesDate').SalesDate, Order.objects.latest('SalesDate').SalesDate)
+    }
+    return JsonResponse(data)
+
 # Overview
 def getSales(request):
     data = {
