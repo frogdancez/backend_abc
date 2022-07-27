@@ -8,7 +8,7 @@ urlpatterns = [
     path('getAllYear', getAllYear, name='getAllYear'),
     path('getTimeRange', getTimeRange, name='getTimeRange'),
     # overview
-    path('getSales', getSales, name='getSales'),
+    path('getSales/<str:startTime>/<str:endTime>', getSales, name='getSales'),
     # customer
     path('topCustomerBySale', topCustomerBySale, name='topCustomerBySale'),
     path('topCustomerByRecord', topCustomerByRecord, name='topCustomerByRecord'),

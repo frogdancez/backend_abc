@@ -26,68 +26,89 @@ def getTimeRange(request):
     return JsonResponse(data)
 
 # Overview
-def getSales(request):
+def getSales(request, startTime, endTime):
     data = {
         'status': 1,
-        'data': list(OrderDetail.objects.values('Order__SalesDate').annotate(Sales=Sum('Sales')))
+        'data': list(OrderDetail.objects.filter(Order__SalesDate__range=[startTime, endTime]).values('Order__SalesDate').annotate(Sales=Sum('Sales')))
     }
     return JsonResponse(data)
 
 # Customer
-def topCustomerBySale(request):
+def getCustomerCountrys(request):
     data = {
         'status': 1,
-        'data': list(OrderDetail.objects.values('Order__Customer__CustomerName').annotate(Sales=Sum('Sales')).order_by('-Sales'))
+        'data': list(Customer.objects.values('Country').distinct())
     }
     return JsonResponse(data)
 
-def topCustomerByRecord(request):
+def topCustomerBySale(request, startTime, endTime):
     data = {
         'status': 1,
-        'data': list(OrderDetail.objects.values('Order__Customer__CustomerName').annotate(Record=Count('Sales')).order_by('-Record'))
+        'data': list(OrderDetail.objects.filter(Order__SalesDate__range=[startTime, endTime]).values('Order__Customer__CustomerName').annotate(Sales=Sum('Sales')).order_by('-Sales'))
     }
     return JsonResponse(data)
 
-def topCustomerByCountrySale(request):
+def topCustomerByRecord(request, startTime, endTime):
     data = {
         'status': 1,
-        'data': list(OrderDetail.objects.values('Order__Customer__Country').annotate(Sales=Sum('Sales')).order_by('-Sales'))
+        'data': list(OrderDetail.objects.filter(Order__SalesDate__range=[startTime, endTime]).values('Order__Customer__CustomerName').annotate(Record=Count('Sales')).order_by('-Record'))
     }
     return JsonResponse(data)
 
-def topCustomerByCountryRecord(request):
+def topCustomerByCountrySale(request, startTime, endTime):
     data = {
         'status': 1,
-        'data': list(OrderDetail.objects.values('Order__Customer__Country').annotate(Record=Count('Sales')).order_by('-Record'))
+        'data': list(OrderDetail.objects.filter(Order__SalesDate__range=[startTime, endTime]).values('Order__Customer__Country').annotate(Sales=Sum('Sales')).order_by('-Sales'))
+    }
+    return JsonResponse(data)
+
+def topCustomerByCountryRecord(request, startTime, endTime):
+    data = {
+        'status': 1,
+        'data': list(OrderDetail.objects.filter(Order__SalesDate__range=[startTime, endTime]).values('Order__Customer__Country').annotate(Record=Count('Sales')).order_by('-Record'))
     }
     return JsonResponse(data)
 
 # Employee
-def topEmployeeBySale(request):
+def getEmployees(request):
     data = {
         'status': 1,
-        'data': list(OrderDetail.objects.values('Order__SalesPerson__SalesPersonName').annotate(Sales=Sum('Sales')).order_by('-Sales'))
+        'data': list(Employee.objects.values('SalesPersonName').distinct())
     }
     return JsonResponse(data)
 
-def topEmployeeByRecord(request):
+def topEmployeeBySale(request, startTime, endTime):
     data = {
         'status': 1,
-        'data': list(OrderDetail.objects.values('Order__SalesPerson__SalesPersonName').annotate(Record=Count('Sales')).order_by('-Record'))
+        'data': list(OrderDetail.objects.filter(Order__SalesDate__range=[startTime, endTime]).values('Order__SalesPerson__SalesPersonName').annotate(Sales=Sum('Sales')).order_by('-Sales'))
+    }
+    return JsonResponse(data)
+
+def topEmployeeByRecord(request, startTime, endTime):
+    data = {
+        'status': 1,
+        'data': list(OrderDetail.objects.filter(Order__SalesDate__range=[startTime, endTime]).values('Order__SalesPerson__SalesPersonName').annotate(Record=Count('Sales')).order_by('-Record'))
     }
     return JsonResponse(data)
 
 # Store
-def topStoreBySale(request):
+def getStores(request):
     data = {
         'status': 1,
-        'data': list(OrderDetail.objects.values('Store__Store', 'Store__Latitude', 'Store__Longitude').annotate(Sales=Sum('Sales')).order_by('-Sales'))
+        'data': list(Store.objects.values('Store').distinct())
     }
     return JsonResponse(data)
 
-def topStoreByRecord(request):
+def topStoreBySale(request, startTime, endTime):
     data = {
         'status': 1,
-        'data': list(OrderDetail.objects.values('Store__Store', 'Store__Latitude', 'Store__Longitude').annotate(Record=Count('Sales')).order_by('-Record'))
+        'data': list(OrderDetail.objects.filter(Order__SalesDate__range=[startTime, endTime]).values('Store__Store', 'Store__Latitude', 'Store__Longitude').annotate(Sales=Sum('Sales')).order_by('-Sales'))
+    }
+    return JsonResponse(data)
+
+def topStoreByRecord(request, startTime, endTime):
+    data = {
+        'status': 1,
+        'data': list(OrderDetail.objects.filter(Order__SalesDate__range=[startTime, endTime]).values('Store__Store', 'Store__Latitude', 'Store__Longitude').annotate(Record=Count('Sales')).order_by('-Record'))
     }
     return JsonResponse(data)
