@@ -10,14 +10,17 @@ urlpatterns = [
     # overview
     path('getSales/<str:startTime>/<str:endTime>', getSales, name='getSales'),
     # customer
-    path('topCustomerBySale', topCustomerBySale, name='topCustomerBySale'),
-    path('topCustomerByRecord', topCustomerByRecord, name='topCustomerByRecord'),
-    path('topCustomerByCountrySale', topCustomerByCountrySale, name='topCustomerByCountrySale'),
-    path('topCustomerByCountryRecord', topCustomerByCountryRecord, name='topCustomerByCountryRecord'),
+    path('getCustomerCountrys', getCustomerCountrys, name='getCustomerCountrys'),
+    path('topCustomerBySale/<str:startTime>/<str:endTime>', topCustomerBySale, name='topCustomerBySale'),
+    path('topCustomerByRecord/<str:startTime>/<str:endTime>', topCustomerByRecord, name='topCustomerByRecord'),
+    path('topCustomerByCountrySale/<str:startTime>/<str:endTime>', topCustomerByCountrySale, name='topCustomerByCountrySale'),
+    path('topCustomerByCountryRecord/<str:startTime>/<str:endTime>', topCustomerByCountryRecord, name='topCustomerByCountryRecord'),
     # employee
-    path('topEmployeeBySale', topEmployeeBySale, name='topEmployeeBySale'),
-    path('topEmployeeByRecord', topEmployeeByRecord, name='topEmployeeByRecord'),
+    path('getEmployees', getEmployees, name='getEmployees'),
+    path('topEmployeeBySale/<str:startTime>/<str:endTime>', topEmployeeBySale, name='topEmployeeBySale'),
+    path('topEmployeeByRecord/<str:startTime>/<str:endTime>', topEmployeeByRecord, name='topEmployeeByRecord'),
     # store
-    path('topStoreByRecord', topStoreByRecord, name='topStoreByRecord'),
-    path('topStoreBySale', topStoreBySale, name='topStoreBySale'),
+    path('getStores', getStores, name='getStores'),
+    path('topStoreByRecord/<str:startTime>/<str:endTime>', topStoreByRecord, name='topStoreByRecord'),
+    path('topStoreBySale/<str:startTime>/<str:endTime>', topStoreBySale, name='topStoreBySale'),
 ]
