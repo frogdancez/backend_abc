@@ -21,7 +21,7 @@ def getAllYear(request):
 def getTimeRange(request):
     data = {
         'status': 1,
-        'data': list(Order.objects.earliest('SalesDate').SalesDate, Order.objects.latest('SalesDate').SalesDate)
+        'data': list([Order.objects.earliest('SalesDate').SalesDate, Order.objects.latest('SalesDate').SalesDate])
     }
     return JsonResponse(data)
 
