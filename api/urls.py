@@ -23,4 +23,12 @@ urlpatterns = [
     path('getStores', getStores, name='getStores'),
     path('topStoreByRecord/<str:startTime>/<str:endTime>', topStoreByRecord, name='topStoreByRecord'),
     path('topStoreBySale/<str:startTime>/<str:endTime>', topStoreBySale, name='topStoreBySale'),
+    # product
+    path('getProducts', getProducts, name='getProducts'),
+    path('topProductBySale/<str:startTime>/<str:endTime>', topProductBySale, name='topProductBySale'),
+    path('topProductByRecord/<str:startTime>/<str:endTime>', topProductByRecord, name='topStoreBySale'),
+    # category
+    path('getCategories', getCategories, name='getCategories'),
+    path('topCategoryBySale/<str:startTime>/<str:endTime>', topCategoryBySale, name='topCategoryBySale'),
+    path('topCategoryByRecord/<str:startTime>/<str:endTime>', topCategoryByRecord, name='topCategoryByRecord'),
 ]
