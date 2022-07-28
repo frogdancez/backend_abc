@@ -112,3 +112,46 @@ def topStoreByRecord(request, startTime, endTime):
         'data': list(OrderDetail.objects.filter(Order__SalesDate__range=[startTime, endTime]).values('Store__Store', 'Store__Latitude', 'Store__Longitude').annotate(Record=Count('Sales')).order_by('-Record'))
     }
     return JsonResponse(data)
+
+# product
+def getProducts(request):
+    data = {
+        'status': 1,
+        'data': list(Product.objects.values('Product').distinct())
+    }
+    return JsonResponse(data)
+
+def topProductBySale(request, startTime, endTime):
+    data = {
+        'status': 1,
+        'data': list(OrderDetail.objects.filter(Order__SalesDate__range=[startTime, endTime]).values('Product__Product').annotate(Sales=Sum('Sales')).order_by('-Sales'))
+    }
+    return JsonResponse(data)
+
+def topProductByRecord(request, startTime, endTime):
+    data = {
+        'status': 1,
+        'data': list(OrderDetail.objects.filter(Order__SalesDate__range=[startTime, endTime]).values('Product__Product').annotate(Record=Count('Sales')).order_by('-Record'))
+    }
+    return JsonResponse(data)
+# category
+def getCategories(request):
+    data = {
+        'status': 1,
+        'data': list(Product.objects.values('Category').distinct())
+    }
+    return JsonResponse(data)
+
+def topCategoryBySale(request, startTime, endTime):
+    data = {
+        'status': 1,
+        'data': list(OrderDetail.objects.filter(Order__SalesDate__range=[startTime, endTime]).values('Product__Category').annotate(Sales=Sum('Sales')).order_by('-Sales'))
+    }
+    return JsonResponse(data)
+
+def topCategoryByRecord(request, startTime, endTime):
+    data = {
+        'status': 1,
+        'data': list(OrderDetail.objects.filter(Order__SalesDate__range=[startTime, endTime]).values('Product__Category').annotate(Record=Count('Sales')).order_by('-Record'))
+    }
+    return JsonResponse(data)
