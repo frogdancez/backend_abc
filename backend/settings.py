@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     #add-in
     'database.apps.DatabaseConfig',
     'api.apps.ApiConfig',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
